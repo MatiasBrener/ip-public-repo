@@ -18,6 +18,7 @@ def index_page(request):
 def getAllImagesAndFavouriteList(request):
     images = []
     favourite_list = []
+    images = services_nasa_image_gallery.getAllImages()
     return images, favourite_list
 
 # función principal de la galería.
@@ -27,7 +28,7 @@ def home(request):
     images = []
     favourite_list = []
     images, favourite_list = getAllImagesAndFavouriteList(request)
-    images = services_nasa_image_gallery.getAllImages()   
+    #images = services_nasa_image_gallery.getAllImages()   
     return render(request, 'home.html', {'images': images, 'favourite_list': favourite_list} )
 
 
